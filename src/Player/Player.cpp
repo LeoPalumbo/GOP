@@ -14,14 +14,13 @@ char razzo[] = "\xF0\x9F\x9A\x80";
 char chitarra[] = "\xF0\x9F\x8E\xB8";
 char cactus[] = "\xF0\x9F\x8C\xB5";
 char* symbols[] = {pizza, razzo, chitarra,cactus};
-//-------> symbols: fulimine, razzo, chitarra, pallone
 
 Player::Player(char name[],int numPlayer){
 	strncpy(this->name,name,max_lengthP-1);
 	this->numberPlayer = numPlayer+1;
 	this->position = 0;
 	this->symbol = symbols[numPlayer];
-	this->sum = 3000;
+	this->sum = 5000;
 }
 
 void Player::setBankruptcy(){
@@ -38,7 +37,7 @@ char* Player::getName(){
 }
 
 void Player::setPosition(int pos){
-	this->position=pos;
+	this->position = pos;
 }
 
 int Player::getNumberPlayer(){
@@ -46,7 +45,7 @@ int Player::getNumberPlayer(){
 }
 
 char* Player::getSymbol(){
-	return(this->symbol);
+	return this->symbol;
 }
 
 void Player::setSum(int n){
@@ -56,12 +55,13 @@ void Player::setSum(int n){
 int Player::getPosition(){
 	return (this->position);
 }
+
 int Player::getSum(){
 	return (this->sum);
 }
 
 void Player::printPlayerInfo(){
-	cout << this->symbol <<" "<<this->name;
+	cout << this->symbol << " " << this->name;
 	if(!this->isBankruptcy()) cout << " (" << this->sum << "$" << ") " << '\t';
 	else cout << " (" << "BANCAROTTA" << ")" << '\t';
 	cout  << "è in posizone: " << this->position+1 << endl;
